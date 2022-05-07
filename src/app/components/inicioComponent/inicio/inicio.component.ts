@@ -21,11 +21,16 @@ export class InicioComponent implements OnInit {
 
   columnas: string[] = ['Usuario', 'Email', 'Nombres', 'Apellidos', 'Estado', 'Consultar', 'Modificar'];
 
-  datos: Usuario[] = [new Usuario("didier.santos", 'didier@hotmail.com', 'Didier', 'Santos', true),
+  datos: Usuario[] = [new Usuario("didier.santos", 'Didier@hotmail.com', 'Didier', 'Santos', true),
   new Usuario("lina.cataño", 'Lina@hotmail.com', 'Lina', 'Cataño', true),
   new Usuario("juan.santos", 'Juan@hotmail.com', 'JuanFe', 'Santos', true),
   new Usuario("ruby.lopez", 'Ruby@hotmail.com', 'Ruby', 'Lopez', true),
   new Usuario("ahsoka.husky", 'Ahsoka@hotmail.com', 'Ahsoka', 'Husky', true),
+  new Usuario("didier1.santos", 'didier@hotmail.com', 'Didier', 'Santos', true),
+  new Usuario("lina1.cataño", 'Lina@hotmail.com', 'Lina', 'Cataño', true),
+  new Usuario("juan1.santos", 'Juan@hotmail.com', 'JuanFe', 'Santos', true),
+  new Usuario("ruby1.lopez", 'Ruby@hotmail.com', 'Ruby', 'Lopez', true),
+  new Usuario("ahsoka1.husky", 'Ahsoka@hotmail.com', 'Ahsoka', 'Husky', true),
   ];
 
   @ViewChild(MatTable) tabla1!: MatTable<Usuario>;
@@ -52,8 +57,9 @@ export class InicioComponent implements OnInit {
   }
 
   agregar(user: Usuario) {
-    //console.log(user);
+    console.log(user);
     this.datos.push(user);
+    console.log(this.datos);
     this.tabla1.renderRows();
     this.usuarios = new Usuario("", "", "", "", true);
   }
@@ -64,6 +70,7 @@ export class InicioComponent implements OnInit {
     });
 
     dialogo.afterClosed().subscribe((user: Usuario) => {
+      console.log(user);
       if (user != undefined)
         this.agregar(user);
     });

@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DialogAddComponent } from './components/dialog-add/dialog-add.component';
 import { DialogReadComponent } from './components/dialog-read/dialog-read.component';
 import { DialogUpdateComponent } from './components/dialog-update/dialog-update.component';
+import { AlertasService } from './services/alertas.service'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { DialogUpdateComponent } from './components/dialog-update/dialog-update.
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AlertasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

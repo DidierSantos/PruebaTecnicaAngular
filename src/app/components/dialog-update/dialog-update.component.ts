@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import Swal from 'sweetalert2'
+import { AlertasService } from '../../services/alertas.service';
 
 @Component({
   selector: 'app-dialog-update',
@@ -19,6 +19,7 @@ export class DialogUpdateComponent implements OnInit {
   estado!: boolean;
 
   constructor(
+    private alertasService:AlertasService,
     public fb: FormBuilder,
     public dialogRef: MatDialogRef<DialogUpdateComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Usuario) { }
@@ -36,12 +37,7 @@ export class DialogUpdateComponent implements OnInit {
   save() {
     const { value, valid } = this.form;
     if (valid) {
-      Swal.fire({
-        title: 'Correcto!',
-        text: 'Usuario modificado correctamente',
-        icon: 'success',
-        confirmButtonText: 'ok'
-      });
+      this.alertasService.alertasuccessm();
       this.dialogRef.close(value);
     }
   }

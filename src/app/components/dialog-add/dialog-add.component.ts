@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import Swal from 'sweetalert2'
+import { AlertasService } from '../../services/alertas.service';
 
 @Component({
   selector: 'app-dialog-add',
@@ -19,6 +19,7 @@ export class DialogAddComponent implements OnInit {
   estado!: boolean;
 
   constructor(
+    private alertasService:AlertasService,
     public fb: FormBuilder,
     public dialogRef: MatDialogRef<DialogAddComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Usuario) { }
@@ -40,7 +41,6 @@ export class DialogAddComponent implements OnInit {
 
     if (valid) {
 
-      //TODO validar si al convertir a número se revienta
       try {
         primeraletra = value.usuario.substring(0, 1);
       } catch (Exception) {
@@ -48,19 +48,10 @@ export class DialogAddComponent implements OnInit {
       }
 
       if (typeof primeraletra !== 'string') {
-        Swal.fire({
-          title: 'Información!',
-          text: 'El usuario debe empezar por una letra',
-          icon: 'warning',
-          confirmButtonText: 'ok'
-        });
+        this.alertasService.alertaWarning();
       } else {
-        Swal.fire({
-          title: 'Correcto!',
-          text: 'Usuario guardado correctamente',
-          icon: 'success',
-          confirmButtonText: 'ok'
-        });
+        this.alertasService.alertasuccess();
+        console.log(value);
         this.dialogRef.close(value);
       }
     }
