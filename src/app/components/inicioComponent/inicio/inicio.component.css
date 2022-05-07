@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+}
+
+table {
+    position: relative;
+    margin-left: 10%;
+    width: 80%;
+}
+
+mat-paginator {
+    position: relative;
+    margin-left: 10%;
+    top: 10px;
+    width: 80%;
+}
+
+.contenedor {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    background-color: rgba(0, 0, 150, .4);
+}
+
+#filtros {
+    float: right;
+}

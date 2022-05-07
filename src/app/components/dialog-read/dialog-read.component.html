@@ -1,0 +1,30 @@
+<div>
+    <h1 mat-dialog-title>Consultando Usuario...</h1>
+    <div class="contenedor">
+
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.usuario" type="number" placeholder="Usuario" disabled=true>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.email" type="email" placeholder="Email" disabled=true>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.nombres" type="text" placeholder="Nombres" disabled=true>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.apellidos" type="text" placeholder="Apellidos" disabled=true>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.estado" type="text" placeholder="Estado" disabled=true>
+        </mat-form-field>
+
+    </div>
+
+    <div id="botones">
+        <button mat-raised-button color="primary" (click)="cerrar()">Cerrar</button>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div>
+    <h1 mat-dialog-title>Creando Usuario...</h1>
+    <div class="contenedor">
+        <form [formGroup]="form">
+            <mat-form-field>
+                <input matInput formControlName="usuario" [(ngModel)]="data.usuario" type="text" placeholder="Ingrese Usuario">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="email" [(ngModel)]="data.email" type="email" placeholder="Ingrese Email">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="nombres" [(ngModel)]="data.nombres" type="text" placeholder="Ingrese Nombres">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="apellidos" [(ngModel)]="data.apellidos" type="text" placeholder="Ingrese Apellidos">
+            </mat-form-field>
+
+            <mat-form-field>
+                <select formControlName="estado" [(ngModel)]="data.estado" placeholder="Estado" matNativeControl>
+                    <option value=true>Activo</option>
+                    <option value=false>Inactivo</option>
+                </select>
+            </mat-form-field>
+        </form>
+        <div id="botones">
+            <button mat-raised-button color="primary" (click)="save()">Confirmar </button>
+            <button mat-raised-button color="primary" (click)="cerrar()">Cerrar</button>
+        </div>
+    </div>
+</div>
